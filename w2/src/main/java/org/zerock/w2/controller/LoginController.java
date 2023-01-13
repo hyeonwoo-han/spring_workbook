@@ -1,6 +1,9 @@
 package org.zerock.w2.controller;
 
 import lombok.extern.log4j.Log4j2;
+import org.zerock.w2.dto.MemberDTO;
+import org.zerock.w2.service.MemberService;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -27,12 +30,16 @@ public class LoginController extends HttpServlet {
         String mid = request.getParameter("mid");
         String mpw = request.getParameter("mpw");
 
-        String str = mid + mpw;
+       try{
+            MemberDTO memberDTO = MemberService.INSTANCE.login(mid, mpw);
+            // 세션저장소 내 저장공간 반환
+            HttpSession session = request.getSession();
+            // 해당 저장공간(세션, 세션컨텍스트)에 loginInfo 라는 이름으로 memberDTO 저장
+            session.setAttribute("loginInfo", memberDTO);
+            response.sendRedirect("/todo/list");
 
-        HttpSession session = request.getSession();
-
-        session.setAttribute("loginInfo", str); // 세션 저장소의 사용자 공간에 loginInfo 이름으로 문자열 보관
-
-        response.sendRedirect("/todo/list");
+       }catch(Exception e){
+            response.sendRedirect("/login?result=error");
+       }
     }
 }
