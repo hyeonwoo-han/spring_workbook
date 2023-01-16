@@ -1,10 +1,3 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: caco
-  Date: 2023/01/13
-  Time: 3:47 PM
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html>
@@ -21,6 +14,8 @@
     <input type="text" name="mid">
     <input type="text" name="mpw">
     <button type="submit">LOG IN</button>
+    <br>
+    <span>자동로그인 허쉴?</span><input type="checkbox" name="auto">
   </form>
 </body>
 </html>

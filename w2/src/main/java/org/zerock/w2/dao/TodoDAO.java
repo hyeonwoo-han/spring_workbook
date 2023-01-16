@@ -3,7 +3,6 @@ package org.zerock.w2.dao;
 import lombok.Cleanup;
 import org.zerock.w2.domain.TodoVO;
 
-import javax.xml.transform.Result;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;

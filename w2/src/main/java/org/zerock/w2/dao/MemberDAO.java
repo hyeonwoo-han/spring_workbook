@@ -1,6 +1,7 @@
 package org.zerock.w2.dao;
 
 import lombok.Cleanup;
+import org.checkerframework.checker.units.qual.C;
 import org.zerock.w2.domain.MemberVO;
 
 import java.sql.Connection;
@@ -36,4 +37,17 @@ public class MemberDAO {
 
         return memberVO;
     }
+    
+    // LoginController의 rememberMe 가 true면 uuid 추가
+    public void updateUuid(String mid, String uuid) throws Exception{
+        String sql = "update tbl_member set uuid = ? where mid = ?";
+
+        @Cleanup Connection connection = ConnectionUtil.INSTANCE.getConnection();
+        @Cleanup PreparedStatement preparedStatement = connection.prepareStatement(sql);
+
+        preparedStatement.setString(1, uuid);
+        preparedStatement.setString(2, mid);
+        preparedStatement.executeUpdate();
+    }
+    
 }
