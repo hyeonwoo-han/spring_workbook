@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/mvc https://www.springframework.org/schema/mvc/spring-mvc.xsd">
+
+<!--    스프링 mvc 설정을 어노테이션으로 처리한다는 뜻-->
+<!--    스프링 mvc의 여러 객체를 자동으로 bean 등록-->
+    <mvc:annotation-driven></mvc:annotation-driven>
+
+<!--    이미지, html 파일 등 정적인 파일의 경로 지정-->
+<!--    /resources로 들어오는 요청은 스프링 MVC에서 처리하지 않는다는 뜻-->
+<!--    location 속성 값 : webapp 폴더에 만들어둔 폴더-->
+    <mvc:resources mapping="/resources/**" location="/resources/"></mvc:resources>
+
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/WEB-INF/views/"></property>
+        <property name="suffix" value=".jsp"></property>
+    </bean>
+</beans>
