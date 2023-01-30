@@ -17,6 +17,12 @@
             <appender-ref ref="console"/>
         </logger>
 
+<!--        sql 실행로그 자세히 보고 싶을 때-->
+<!--        org.zerock.springex.mapper 패키지 로그를 TRACE 레벨로 기록-->
+        <logger name="org.zerock.springex.mapper" level="TRACE" additivity="false">
+            <appender-ref ref="console"/>
+        </logger>
+
         <root level="INFO" additivity="false">
             <AppenderRef ref="console"/>
         </root>
