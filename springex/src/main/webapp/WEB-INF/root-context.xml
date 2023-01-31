@@ -36,5 +36,7 @@
 
 <!--    modelmapperconfig scan-->
     <context:component-scan base-package="org.zerock.springex.config"/>
+<!--    service 패키지 추가-->
+    <context:component-scan base-package="org.zerock.springex.service"/>
 
 </beans>
