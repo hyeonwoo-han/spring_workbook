@@ -1,25 +1,30 @@
 import java.util.Scanner;
 
-public class Main {
+public class Main{
     public static void main(String[] args) {
+
         Scanner sc = new Scanner(System.in);
-        int[] arr = new int[28];
-        for(int i = 0; i < 28; i++){
-            arr[i] = sc.nextInt();
-            String newLine = sc.nextLine();
+
+        int N = sc.nextInt();
+        int sum = 0;
+
+        for(int i = 0; i < N; i++){
+            if(Main.isHansu(i + 1)) sum += 1;
         }
 
-        for(int i = 1; i <= 30; i++){
-            for(int j = 1; j <= 30; j++){
-                if(arr[i] == j){
-                    break; // j for문 탈출
-                }else{
-                    System.out.println(j);
-                }
-            }
+        System.out.println(sum);
+    }
+
+    public static boolean isHansu(int n) {
+
+        if(n < 100){
+            return true;
+        }else{
+            int hundred = n / 100;
+            int ten = (n % 100) / 10;
+            int one = (n % 10);
+
+            return (hundred - ten) == (ten - one) ? true : false;
         }
-
-
-
     }
 }

@@ -84,11 +84,11 @@
             <script>
               // 수정, 삭제, 목록보기를 위해 각 버튼에 이벤트 처리
               document.querySelector(".btn-primary").addEventListener("click", function(e){
-                self.location = "/todo/modify?tno=" + ${dto.tno};
+                self.location = `/todo/modify?tno=${dto.tno}&${pageRequestDTO.link}`;
               }, false);
 
               document.querySelector(".btn-secondary").addEventListener("click", function(e){
-                self.location = "/todo/list";
+                self.location = "/todo/list?${pageRequestDTO.link}";
               }, false);
             </script>
           </div>
