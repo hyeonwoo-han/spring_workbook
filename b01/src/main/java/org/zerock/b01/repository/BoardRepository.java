@@ -6,6 +6,7 @@ import org.zerock.b01.domain.Board;
 import org.zerock.b01.repository.search.BoardSearch;
 
 public interface BoardRepository extends JpaRepository<Board, Long>, BoardSearch {
+    // JPQL @Query annotation
     @Query(value = "select now()", nativeQuery = true)
     String getTime();
 }
